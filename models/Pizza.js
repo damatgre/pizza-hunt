@@ -9,7 +9,9 @@ const PizzaSchema = new Schema(
     {
         pizzaName: {
             //instruct that data will adhere to built-in JS data types
-            type: String
+            type: String,
+            required: 'Please provide a name for your pizza!',
+            trim: true
         },
         createdBy: {
             type: String
@@ -22,6 +24,8 @@ const PizzaSchema = new Schema(
         },
         size: {
             type: String,
+            required: 'Select a size for your pizza!',
+            enum: ['Personal', 'Small', 'Medium', 'Large', 'Extra Large'],
             default: 'Large'
         },
         //indicates array as data type, can also specify Array instead of brakcets
